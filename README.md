@@ -1,6 +1,23 @@
-# BitchBetterHaveMyMoney
+# BBHMM
 
 ### Splitwise Clone
+
+## Instructions for venv
+
+### Create a virtual environment
+`python3 -m venv bbhmm-env`
+
+### Activate
+`source bbhmm-env/bin/activate`
+
+### Deactivate
+`deactivate`
+
+### Update dependency list
+`pip freeze > requirements.txt`
+
+### Install from dependency list
+`pip install -r requirements.txt`
 
 ## Instructions for Docker
 
