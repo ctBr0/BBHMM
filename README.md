@@ -1,6 +1,6 @@
 # BBHMM
 
-### Splitwise Clone
+### Splitwise Clone API
 
 ## Instructions for venv
 
