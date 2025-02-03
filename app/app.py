@@ -5,11 +5,11 @@ from utils.db import init_db
 from apis.user_api import user_ns, get_user_by_id
 from apis.expense_api import expense_ns
 
-def create_app(config_object='config.DevelopmentConfig'): # Default configuration
 
+def create_app(config_object="config.DevelopmentConfig"):  # Default configuration
   app = Flask(__name__)
   jwt = JWTManager(app)
-  api = Api(app, version = '1.0', title = 'BBHMM API', description = 'A Splitwise clone API')
+  api = Api(app, version="1.0", title="BBHMM API", description="A Splitwise clone API")
 
   app.config.from_object(config_object)
 
@@ -18,16 +18,16 @@ def create_app(config_object='config.DevelopmentConfig'): # Default configuratio
     init_db()
 
   # Register namespaces
-  api.add_namespace(user_ns, path = '/users')
-  api.add_namespace(expense_ns, path = '/expenses')
+  api.add_namespace(user_ns, path="/users")
+  api.add_namespace(expense_ns, path="/expenses")
 
   @jwt.user_identity_loader
   def user_identity_lookup(user):
-    return user['id']
+    return user["id"]
 
   @jwt.user_lookup_loader
   def user_lookup_callback(_jwt_header, jwt_data):
     identity = jwt_data["sub"]
     return get_user_by_id(identity)
-  
+
   return app

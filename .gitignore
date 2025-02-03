@@ -4,3 +4,5 @@ bbhmm-env
 __pycache__/
 
 .env
+
+ruff.toml
